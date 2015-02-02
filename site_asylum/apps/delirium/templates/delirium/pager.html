@@ -1,0 +1,16 @@
+{% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая ({{ page_obj.previous_page_number }})</a>
+{% endif %}
+{% for page in page_range %}
+    <b>
+        {% if page == paginator.page %}
+            <strong>{{ page }}</strong>
+        {% else %}
+            <a href="?page={{ page }}">{{ page }}</a>
+        {% endif %}
+    </b>
+{% endfor %}
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Следующая ({{page_obj.next_page_number}})</a>
+{% endif %}
+[<a href="?page=1">В начало</a>|<a href="?page={{ paginator.num_pages }}">В конец</a>]

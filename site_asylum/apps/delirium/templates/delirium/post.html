@@ -1,0 +1,45 @@
+{% load tz %}
+<tr>
+    <td class="row1" rowspan="2" valign="top">
+        <span class="name"><a name="3387" id="3387"></a>
+            {% if post.is_registered %}
+            {% if post.username != post.user.username %}
+                {{ post.username }}<br>
+            {% endif %}
+            <strong>
+                {{ post.user.username }}
+            </strong>
+            {% else %}
+            {{ post.username }}
+            {% endif %}
+        </span>
+        <br>
+        <span class="postdetails">{% if not post.is_registered %}Гость{% endif %}<br><br><br>
+        {% if post.is_registered %}
+            <img src="/static/delirium/avatars/{{ post.user.avatar }}" alt="" border="0">
+        {% endif %}
+        <br><br><br><br>
+        </span>
+        <br>
+        <img src="img/spacer.gif" alt="" height="1" width="150">
+    </td>
+    <td class="row1" valign="top">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td class="postdetails">Добавлено: {{ post.posted_at|localtime|date:"j E Y г. H:i" }} <hr />
+                </td>
+                <td align="right" nowrap="nowrap" valign="top">&nbsp;</td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td class="postbody" valign="top"><br>
+                    {{ post.text|safe }}
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td class="row1" nowrap="nowrap" valign="bottom">&nbsp;</td>
+</tr>

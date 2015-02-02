@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<title>Delirium</title>
+<link rel="stylesheet" href="{% static 'delirium/css/fiblack.css' %}">
+
+<style type="text/css">
+@font-face {
+    font-family: Trinigan;
+	src: url({% static 'delirium/fonts/Trinigan.ttf' %}) format("truetype");
+	font-weight:200;
+}
+table{
+    width: 100%;
+}
+</style>
+</head>
+<body>
+    <a name="top" id="top"></a>
+    <table class="bodyline">
+        <tr>
+            <td>
+                <table class="topbkg">
+                    <tr>
+                        <td>
+                            <a href="http://asylum.su/forum/index.php" style="font-family: Trinigan; font-size: 50pt; color: #7EB876; padding-left:10px; " >Asylum</a>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td class="topnav"><a href="http://asylum.pnz.ru/">Главная</a>&nbsp; •&nbsp;
+                            <a href="http://asylum.su/forum/">Форум</a>&nbsp; •&nbsp;
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td valign="top" class="maintitle">
+                                        <div align="center">Delirium ... </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellpadding="2" cellspacing="2">
+                            <tr>
+                                <td class="nav" nowrap="nowrap">На страницу &nbsp; {% include "delirium/pager.html" %}</td>
+                            </tr>
+                            </table>
+                            <table class="forumline" cellpadding="3" cellspacing="1">
+                                <tr>
+                                    <th height="28" width="150">Автор</th>
+                                    <th width="100%">Сообщение</th>
+                                </tr>
+                                <tr>
+                                    {% for post in object_list %}
+                                        {% include "delirium/post.html" with post=post %}
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <td class="spacerow" colspan="2" height="1"><img src="img/spacer.gif" alt="" height="1" width="1"></td>
+                                </tr>
+                            </table>
+                            <table cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <td class="nav" nowrap="nowrap">На страницу {% include "delirium/pager.html" %}</td>
+                                </tr>
+                            </table>
+                            <div class="gensmall" align="center"><br>
+                            </div>
+                            <a name="bot" id="bot"></a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
