@@ -17,3 +17,5 @@ DATABASES = {
         'PASSWORD': SECRET['DB_PW']
     }
 }
+
+SECRET_KEY = SECRET['SECRET_KEY']
