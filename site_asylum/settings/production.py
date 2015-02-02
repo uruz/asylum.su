@@ -15,7 +15,7 @@ DATABASES = {
         'NAME': SECRET['DB_NAME'],
         'USER': SECRET['DB_USER'],
         'PASSWORD': SECRET['DB_PW'],
-        'HOST': '',
+        'HOST': '127.0.0.1',
     }
 }
 
