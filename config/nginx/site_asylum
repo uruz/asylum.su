@@ -1,0 +1,37 @@
+upstream site_yulia {
+        server unix:/home/voidus/site_yulia/var/run/app.sock fail_timeout=0;
+}
+
+server {
+        listen 80;
+        server_name vergazova.com;
+
+        access_log /home/voidus/site_yulia/var/log/access.log;
+        error_log /home/voidus/site_yulia/var/log/error.log;
+
+        root /home/voidus/.virtualenvs/site_yulia/www/;
+
+        location = /favicon.ico {
+                log_not_found off;
+                access_log off;
+                alias /home/voidus/.virtualenvs/site_yulia/www/static/favicon.ico;
+        }
+
+        location = /robots.txt {
+                allow all;
+                log_not_found off;
+                access_log off;
+                alias /home/voidus/.virtualenvs/site_yulia/www/static/robots.txt;
+        }
+
+        location ~* ^/(static/|media/) {
+        }
+
+        location / {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+            proxy_pass   http://site_yulia;
+        }
+
+}
