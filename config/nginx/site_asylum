@@ -4,7 +4,7 @@ upstream site_asylum {
 
 server {
         listen 80;
-        server_name vergazova.com;
+        server_name asylum.su;
 
         access_log /home/voidus/site_asylum/var/log/access.log;
         error_log /home/voidus/site_asylum/var/log/error.log;
