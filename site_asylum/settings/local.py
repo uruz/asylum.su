@@ -13,7 +13,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'site_asylum',
         'USER': 'site_asylum',
-        'PASSWORD': ''
+        'PASSWORD': '',
+        'HOST': '',
     }
 }
 
