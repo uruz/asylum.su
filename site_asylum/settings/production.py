@@ -20,3 +20,6 @@ DATABASES = {
 }
 
 SECRET_KEY = SECRET['SECRET_KEY']
+VIRTUAL_ENV = os.environ['VIRTUAL_ENV']
+MEDIA_ROOT = os.path.join(VIRTUAL_ENV, 'www/media/')
+STATIC_ROOT = os.path.join(VIRTUAL_ENV, 'www/static/')
