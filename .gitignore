@@ -55,3 +55,4 @@ target/
 
 #voidus
 site_asylum/data/
+site_asylum/secret_*.json
