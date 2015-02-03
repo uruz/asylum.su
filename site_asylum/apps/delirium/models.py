@@ -9,6 +9,10 @@ class DeliriumUser(models.Model):
     class Meta:
         verbose_name = 'Пользователь Delirium'
         verbose_name_plural = 'Пользователи Delirium'
+        ordering = ('id', )
+
+    def __str__(self):
+        return self.username
 
 
 class Post(models.Model):
@@ -22,3 +26,11 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
+        ordering = ('id', )
+
+    def __str__(self):
+        threshold = 16
+        text = self.text
+        if len(text) > threshold:
+            text = text[:threshold] + '...'
+        return text
